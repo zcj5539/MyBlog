@@ -1,0 +1,14 @@
+.container {
+    background-color: #9c9023;
+    padding: 20px;
+    width: 97%;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 10px;
+}

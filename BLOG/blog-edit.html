@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="edit.css">
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="ja">
+
+    <body>
+        <nav>
+            <div class="container">
+                <div class="brand">[あなたの名前]</div>
+                <div class="nav-links">
+                    <a href="/list">ブロック一覧</a>
+                    <a href="/add">ブログの追加</a>
+                    <a href="/delete">ブログの削除</a>
+                    <a href="/logout">ログアウト</a>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container">
+            <h1>ブログを編集</h1>
+            <form action="/edit" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<!-- ブログID -->">
+    
+                <label for="title">タイトル</label>
+                <input type="text" id="title" name="title" value="<!-- ブログの現在のタイトル -->" required>
+    
+                <label for="content">内容</label>
+                <textarea id="content" name="content" rows="10" required><!-- ブログの現在の内容 --></textarea>
+    
+                <div>
+                    <label for="date">日付</label>
+                    <input type="text" id="date" name="date" required placeholder="年/月/日" value="<!-- 現在の日付 -->">
+                    <input type="date" id="date-picker" onchange="updateDate()" style="margin-left: 10px;">
+                </div>
+    
+                <div>
+                    <label for="category">カテゴリ</label>
+                    <select id="category" name="category" required>
+                        <option value="technology">技術</option>
+                        <option value="lifestyle">ライフスタイル</option>
+                        <option value="education">教育</option>
+                        <option value="entertainment">エンターテインメント</option>
+                        <!-- 他のカテゴリを追加することも可能です -->
+                    </select>
+                </div>
+    
+                <label for="image">画像をアップロード</label>
+                <input type="file" name="image" accept="image/*">
+    
+                <button type="submit">更新する</button>
+                <button>戻る</button>
+            </form>
+        </div>
+    </body>
+
+    </html>
+
+</body>
+
+</html>

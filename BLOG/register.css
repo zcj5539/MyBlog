@@ -1,0 +1,27 @@
+body{
+    background-image: url(img/login-back.jpg);
+    background-size: cover;
+}
+.register-form{
+    text-align: center;
+    margin-top: 100px;
+}
+h2,p{
+    color: aliceblue;
+}
+input{
+    width: 15%;
+    height: 30px;
+    margin: 10px auto;
+    border:2px solid transparent 
+}
+input::placeholder{
+    text-align: center; /* 水平居中 */
+    line-height: 40px;  /* 垂直居中，与 input 的 height 保持一致 */
+}
+button{
+    width: 15.5%;
+    height: 35px;
+    margin: 10px auto;
+    color:blue
+}
