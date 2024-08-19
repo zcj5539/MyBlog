@@ -11,7 +11,9 @@
 <body>
     <nav>
         <div class="container">
-            <div class="brand">臧伝江</div>
+            <div class="brand">
+                <span th:text="${username}">username</span>
+            </div>
             <div class="nav-links">
                 <a href="/list">ブロック一覧</a>
                 <a href="/add">ブログの追加</a>
@@ -20,10 +22,10 @@
             </div>
         </div>
     </nav>
-    <div class="1">
+    <div class="container2">
         <h2>新しいブログを作成</h2>
         <form action="/create" method="POST">
-            <div>
+            <div class="form">
                 <label for="title">タイトル</label>
                 <input type="text" id="title" name="title" required>
             </div>
@@ -40,7 +42,7 @@
                 <label for="img">画像</label>
                 <input type="file" name="img" id="img" accept="image/*">
             </div>
-            <div>
+            <div id="textarea">
                 <label for="content">内容</label>
                 <textarea id="content" name="content" rows="10" required></textarea>
             </div>

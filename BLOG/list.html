@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="list.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="container">
+                <div class="brand">
+                    <span th:text="${username}">username</span>
+                </div>
+                <div class="nav-links">
+                    <a href="/list">ブロック一覧</a>
+                    <a href="/add">ブログの追加</a>
+                    <a href="/delete">ブログの削除</a>
+                    <a href="/logout">ログアウト</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div>
+            <img src="img/welcome.jpg" alt="404error" class="wel" id="wel">
+        </div>
+        <article>
+            <h2>ブログ一覧</h2>
+            <hr>
+            <section class="add-blog">
+                <div class="all-view-add_button">
+                    <a href="" class="btn-add-blog">ブログ追加</a>
+                </div>
+            </section>
+            <ul class="blog">
+                <li>
+                    <a href="">
+                        <img src="" alt="">
+                        <p></p><br>
+                        <p></p>
+                    </a>
+                </li>
+            </ul>
+        </article>
+    </main>
+    <footer>
+        <div>
+            <p>
+                <small>&copy; 2024 zoudenkou</small>
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
