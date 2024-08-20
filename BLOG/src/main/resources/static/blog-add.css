@@ -1,0 +1,99 @@
+/* 顶部导航栏 */
+.container {
+    background-color: #9c9023;
+    padding: 20px;
+    width: 97%;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* 页面背景 */
+body {
+    background-image: url(img/login-back.jpg);
+    background-size: cover; /* 确保背景图片覆盖整个页面 */
+    background-position: center; /* 确保背景图片居中对齐 */
+}
+
+/* 标题样式 */
+h2 {
+    text-align: center;
+    padding-top: 20px;
+}
+
+/* 导航链接样式 */
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 10px;
+}
+
+/* 表单容器 */
+.container2 {
+    width: 50%; /* 调整宽度，以适应两个按钮在同一行显示 */
+    margin: auto;
+    background-color: bisque;
+    padding: 20px; /* 添加内边距 */
+    box-sizing: border-box; /* 确保宽度计算包括内边距和边框 */
+}
+
+/* 标签样式 */
+label {
+    display: inline-block;
+    width: 70px; /* 固定标签宽度 */
+    text-align: right; /* 标签文字右对齐 */
+    margin: 10px 10px; /* 上下 10px，左右 10px */
+}
+
+/* 文本区域 */
+#textarea {
+    display: flex;
+    flex-direction: column; /* 确保 label 和 textarea 垂直对齐 */
+}
+
+/* 文本区域中的 textarea 样式 */
+textarea {
+    width: 100%; /* 占据父容器的全宽 */
+    margin-top: 10px; /* 顶部外边距 */
+    padding: 10px; /* 内边距 */
+    box-sizing: border-box; /* 确保宽度计算包括内边距和边框 */
+}
+
+/* 输入框和文本区域的共同样式 */
+input, textarea {
+    width: 100%; /* 占据父容器的全宽 */
+    padding: 10px; /* 内边距 */
+    box-sizing: border-box; /* 确保宽度计算包括内边距和边框 */
+}
+
+/* 按钮样式 */
+button {
+    color: #fff;
+    border: none;
+    margin: 20px 10px; /* 上下 20px，左右 10px */
+    width: 100px;
+    text-align: center;
+    padding: 10px;
+    background-color: chocolate;
+    cursor: pointer; /* 添加指针效果 */
+}
+
+button:hover {
+    background-color: darkorange; /* 悬停时背景色变化 */
+}
+
+/* “返回”链接样式 */
+a.button {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    background-color: chocolate;
+    padding: 10px 20px; /* 内边距 */
+    border-radius: 5px; /* 圆角 */
+    text-align: center;
+}
+
+a.button:hover {
+    background-color: darkorange; /* 悬停时背景色变化 */
+}

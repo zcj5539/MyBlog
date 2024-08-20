@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="blog-add.css">
+</head>
+
+<body>
+    <nav>
+        <div class="container">
+            <div class="brand">
+                <span th:text="${username}">username</span>
+            </div>
+            <div class="nav-links">
+                <a href="/list">ブロック一覧</a>
+                <a href="/add">ブログの追加</a>
+                <a href="/delete">ブログの削除</a>
+                <a href="/logout">ログアウト</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container2">
+        <h2>新しいブログを作成</h2>
+        <form action="/create" method="POST">
+            <div class="form">
+                <label for="title">タイトル</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            
+            <div>
+                <label for="date">日付</label>
+                <input type="date" id="date" name="date" required placeholder="年/月/日">
+            </div>
+            <div>
+                <label for="cate">カテゴリ</label>
+                <input type="text" name="cate" id="cate" required   >
+            </div>
+            <div>
+                <label for="img">画像</label>
+                <input type="file" name="img" id="img" accept="image/*">
+            </div>
+            <div id="textarea">
+                <label for="content">内容</label>
+                <textarea id="content" name="content" rows="10" required></textarea>
+            </div>
+            <button type="submit">投稿する</button>
+            <button>戻る</button>
+        </form>
+    </div>
+</body>
+
+</html>

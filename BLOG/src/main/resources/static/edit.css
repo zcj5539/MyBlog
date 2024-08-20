@@ -1,0 +1,56 @@
+.container {
+    background-color: #c0e323;
+    padding: 20px;
+    width: 97%;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    text-decoration: none;
+}
+body{
+    background-image: url(img/login-back.jpg);
+}
+h2{
+    text-align: center;
+    padding-top: 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    margin: 10px;
+}
+.container2{
+    width: 35%;
+    margin: auto;
+    background-color: bisque;
+}
+label{
+    display: inline-block;
+    width: 70px;
+    text-align: justify;
+    text-align-last: justify;
+    margin: 10px 30px;
+}
+#textarea{
+    display: flex;
+    align-self: flex-start;
+}
+textarea{
+    margin-top: 20px;
+}
+input,textarea{
+    /* float: right; */
+    width: 60%;
+}
+button{
+    /* display: flex; */
+    color:#fff;
+    border: none;
+    margin: 20px auto;
+    margin-left: 5%;
+    width: 100px;
+    text-align: center;
+    padding: 10px auto;
+    background-color: chocolate;
+}
