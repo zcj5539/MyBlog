@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ブログの編集</title>
-    <link rel="stylesheet" href="edit.css"> <!-- 可以使用单独的 CSS 文件来调整样式 -->
+    <link rel="stylesheet" th:href="@{blog-edit.css}"> <!-- 可以使用单独的 CSS 文件来调整样式 -->
 </head>
 <body>
     <nav>
@@ -13,10 +13,9 @@
                 <span th:text="${username}">username</span>
             </div>
             <div class="nav-links">
-                <a href="/list">ブロック一覧</a>
-                <a href="/add">ブログの追加</a>
-                <a href="/delete">ブログの削除</a>
-                <a href="/logout">ログアウト</a>
+                <a th:href="@{/list}">ブロック一覧</a>
+                <a th:href="@{/blog-add}">ブログの追加</a>
+                <a th:href="@{/admin/logout}">ログアウト</a>
             </div>
         </div>
     </nav>

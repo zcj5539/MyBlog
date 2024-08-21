@@ -16,9 +16,8 @@
                     <span th:text="${adminName}"></span>
                 </div>
                 <div class="nav-links">
-                    <a href="/list">ブロック一覧</a>
-                    <a href="/add">ブログの追加</a>
-                    <a th:href="@{/delete}">ブログの削除</a>
+                    <a th:href="@{/list}">ブロック一覧</a>
+                    <a th:href="@{/blog-add}">ブログの追加</a>
                     <a th:href="@{/logout}">ログアウト</a>
                 </div>
             </div>
@@ -32,16 +31,14 @@
             <h2>ブログ一覧</h2>
             <hr>
             <section class="add-blog">
-                <div class="all-view-add_button">
-                    <a href="" class="btn-add-blog">ブログ追加</a>
-                </div>
+
             </section>
             <ul class="blog">
-                <li>
-                    <a href="">
-                        <img src="" alt="">
-                        <p></p><br>
-                        <p></p>
+                <li th:each="blog:${list}">
+                    <a th:href="@{/blog/edit/{blogId}(blogId=${blog.blogId})}">
+                        <img th:src="@{/blog-img/{imagePath}(imagePath=${blog.blogImage})}" alt="">
+                        <p th:text="${blog.blogTitle}"></p><br>
+                        <p th:text="${blog.blogCategory}"></p>
                     </a>
                 </li>
             </ul>

@@ -1,5 +1,6 @@
 package blog.com.models.entity;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 import jakarta.persistence.Entity;
@@ -17,17 +18,17 @@ public class Blog {
 	private String blogDescription;
 	private String blogImage;
 	private String blogTitle;
-	private LocalDateTime blogDate;
+	private LocalDate blogDate;
 	private Long adminId;
 	public Blog() {
 	}
-	public Blog(String blogCategory, String blogDescription, String blogImage, String blogTitle, LocalDateTime blogDate,
+	public Blog(String blogCategory, String blogDescription, String blogImage, String blogTitle, LocalDate date,
 			Long adminId) {
 		this.blogCategory = blogCategory;
 		this.blogDescription = blogDescription;
 		this.blogImage = blogImage;
 		this.blogTitle = blogTitle;
-		this.blogDate = blogDate;
+		this.blogDate = date;
 		this.adminId = adminId;
 	}
 	public Long getBlogId() {
@@ -60,10 +61,10 @@ public class Blog {
 	public void setBlogTitle(String blogTitle) {
 		this.blogTitle = blogTitle;
 	}
-	public LocalDateTime getBlogDate() {
+	public LocalDate getBlogDate() {
 		return blogDate;
 	}
-	public void setBlogDate(LocalDateTime blogDate) {
+	public void setBlogDate(LocalDate blogDate) {
 		this.blogDate = blogDate;
 	}
 	public Long getAdminId() {
