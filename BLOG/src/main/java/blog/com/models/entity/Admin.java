@@ -24,10 +24,10 @@ public class Admin {
 	//password
 	@Column(name = "password")
 	private String password;
-	//空的构造函数
+	//空のコンストラクタ
 	public Admin() {
 	}
-	//构造函数
+	//コンストラクタ
 	public Admin(String adminEmail, String adminName, String password) {
 		this.adminEmail = adminEmail;
 		this.adminName = adminName;

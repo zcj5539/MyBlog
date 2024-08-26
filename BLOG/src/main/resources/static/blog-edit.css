@@ -44,13 +44,33 @@ input,textarea{
     width: 60%;
 }
 
+/* 按钮样式 */
 button {
+
+}
+
+.button-container {
+    text-align: center;
+}
+
+.button-container > .row {
+    margin-bottom: 20px; /* 两行之间的间距 */
+}
+
+.button-container button {
+    margin-right: 10px;    
     color: #fff;
-    border: none;
-    width: 50px;
+    border: none;  
+    width: 100px;
+    margin: 20px auto; /* 上下 20px，左右 10px */
+    text-align: center;
     padding: 10px;
     background-color: chocolate;
-    margin: 0 auto; /* 在按钮之间设置适当的间距 */
+    cursor: pointer; /* 添加指针效果 */
+}
+
+button:hover {
+    background-color: darkorange; /* 悬停时背景色变化 */
 }
 .container2 > div {
     text-align: center;

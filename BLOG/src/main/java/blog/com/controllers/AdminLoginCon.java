@@ -28,7 +28,7 @@ public class AdminLoginCon {
 	@PostMapping("/admin/login/process")
 	public String adminLoginProcess(@RequestParam String adminEmail,
 									@RequestParam String password) {
-		//logincheckメソッドを呼び出して、adminニ結果をあげる。
+		//logincheckメソッドを呼び出して、adminに結果をあげる。
 		Admin admin = adminService.loginCheck(adminEmail, password);
 		//もしadmin==null，login画面ニとどまる
 		//そうでない場合、ログインのデータをsessionに保存，ブログ一覧画面にアクセスする。

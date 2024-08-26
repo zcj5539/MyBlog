@@ -22,10 +22,10 @@ public class BlogListCon {
 	//blog一覧画面を表示
 	@GetMapping("/blog/list")
 	public String getBlogList(Model model) {
-		//从session取得登陆者的情报
+		//セッションから登録者情報を取得
 		Admin admin = (Admin) session.getAttribute("loginAdminInfo");
-	//如果，admin==null，重定向登录画面
-		//否则，把登录者名字传给画面，展示博客一览画面。
+	//もし，admin==null，ログイン画面にリダイレクトする
+		//そうでない場合、登録者の名前を画面ニ渡し、ブログ一覧画面を表示する
 		 if(admin==null) {
 			 return "redirect:/admin/login";
 		 }else {

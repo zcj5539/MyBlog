@@ -16,15 +16,15 @@ public class BlogService {
 	private BlogDao blogDao;
 
 	// 商品一览チェック
-	// 如果adminId==null 返回null
-	// findAll内容交给控制器
-	public List<Blog> selectAllBlogList(Long adminId) {
-		if (adminId == null) {
-			return null;
-		} else {
-			return blogDao.findAll();
-		}
-	}
+	// もしadminId==null nullに戻る
+	// findAllの内容をコントローラークラスにわたす  
+    public List<Blog> selectAllBlogList(Long adminId) {
+        if (adminId == null) {
+            return null;
+        } else {
+            return blogDao.findByAdminId(adminId);
+        }
+    }
 
 	// ブログ登録チェック
 	// もし、findByBlogTitleがNULLだったら、保存,true
@@ -50,7 +50,7 @@ public class BlogService {
 		}
 	}
 
-	// 更新处理的チェック、もしblogId==null、更新処理をしない false
+	// 更新処理のチェック、もしblogId==null、更新処理をしない false
 	// そうでない場合、更新処理をする
 	// コントローラクラスからもらった、blogIdを使って、編集する前の、データを取得
 	// 変更すべきところだけ、セッターを使用してデータを更新

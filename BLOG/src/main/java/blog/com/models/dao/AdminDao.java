@@ -7,12 +7,12 @@ import blog.com.models.entity.Admin;
 
 @Repository
 public interface AdminDao extends JpaRepository<Admin, Long> {
-	//保存和更新处理
+	//保存と更新処理
 	Admin save(Admin admin);
 	//SELECT * FROM admin WHERE admin_eamil = ?
-	//用途：注册时防止邮箱重复
+	//用途：登録するとき、メールの重複を防ぐ
 	Admin findByAdminEmail(String adminEmail);
-	//功能：登录时，是否有对应的email和密码
+	//機能：ログインするとき、対応するメールとパスワードが存在するかをチェック
 	//SELECT * FROM admin WHERE admin_emai= ? and password = ?
 	Admin findByAdminEmailAndPassword(String adminEmail,String password);
 	

@@ -69,10 +69,11 @@ input, textarea {
 
 /* 按钮样式 */
 button {
+    display: block;
     color: #fff;
-    border: none;
-    margin: 20px 10px; /* 上下 20px，左右 10px */
+    border: none;  
     width: 100px;
+    margin: 20px auto !important;     /* 上下 20px，左右 10px */
     text-align: center;
     padding: 10px;
     background-color: chocolate;
@@ -84,16 +85,4 @@ button:hover {
 }
 
 /* “返回”链接样式 */
-a.button {
-    display: inline-block;
-    text-decoration: none;
-    color: #fff;
-    background-color: chocolate;
-    padding: 10px 20px; /* 内边距 */
-    border-radius: 5px; /* 圆角 */
-    text-align: center;
-}
 
-a.button:hover {
-    background-color: darkorange; /* 悬停时背景色变化 */
-}

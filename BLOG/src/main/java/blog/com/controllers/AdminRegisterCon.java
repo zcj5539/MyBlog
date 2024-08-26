@@ -19,7 +19,7 @@ public class AdminRegisterCon{
 	public String getAdminRegisterPage() {
 		return "register.html";
 	}
-	//登録处理
+	//登録処理
 	@PostMapping("/admin/register/process")
 	public String adminRegitserProcess(@RequestParam String adminName,
 										@RequestParam String adminEmail,

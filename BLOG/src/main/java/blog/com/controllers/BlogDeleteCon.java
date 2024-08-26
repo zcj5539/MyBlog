@@ -18,7 +18,7 @@ public class BlogDeleteCon {
 
 	@PostMapping("/blog/delete")
 	public String blogDelete(Long blogId) {
-		// 从session获得的登录者情报用admin格纳
+		// sessionからもらった登録者情報をadminで格纳。
 		Admin admin = (Admin) session.getAttribute("loginAdminInfo");
 		// もし、admin==nullだったら、ログイン画面にリダイレクトする
 		if (admin == null) {

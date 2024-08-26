@@ -27,6 +27,7 @@ public class BlogAddCon {
 
 	@Autowired
 	private HttpSession session;
+	
 
 	// ブログ登録画面の表示
 	@GetMapping("blog-add")

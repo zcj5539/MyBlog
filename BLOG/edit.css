@@ -43,14 +43,19 @@ input,textarea{
     /* float: right; */
     width: 60%;
 }
-button{
-    /* display: flex; */
-    color:#fff;
-    border: none;
-    margin: 20px auto;
-    margin-left: 5%;
+/* 按钮样式 */
+button {
+    display: block;
+    color: #fff;
+    border: none;  
     width: 100px;
+    margin: 20px auto; /* 上下 20px，左右 10px */
     text-align: center;
-    padding: 10px auto;
+    padding: 10px;
     background-color: chocolate;
+    cursor: pointer; /* 添加指针效果 */
+}
+
+button:hover {
+    background-color: darkorange; /* 悬停时背景色变化 */
 }

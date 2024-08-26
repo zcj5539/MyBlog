@@ -12,10 +12,11 @@ import jakarta.transaction.Transactional;
 	public class AdminService {
 	@Autowired
 		private AdminDao adminDao;
-		//利用admindao里面的重复邮箱验证方法
-		//如果null，则使用save方法进行注册处理。
-		//保存成功后显示true
-		//不是的话 false
+		//admindaoの中の、重複メールチェックする方法を使う。
+		//保存処理（登録処理）
+		//如果null，则使用save方法进行注册处理。もしnullだったら、saveメソッドで登録処理をする。
+		//保存できたらtrueを表示
+		//そうでない場合、falseを表示
 		@Transactional
 		public boolean createAdmin(String adminEmail,String adminName,String password) {
 			if(adminDao.findByAdminEmail(adminEmail)==null) {
@@ -25,9 +26,10 @@ import jakarta.transaction.Transactional;
 				return false;
 			}
 		}
-		//登陆处理，如果email和密码使用adminDao里的方法
-		//=null的时候，告诉控制台。
-		//不是的话，把登录情报交给控制台
+		
+		//ログアウト処理，もしemailとパスワードがfindByAdminEmailAndPasswordを使用して存在しなかった場合、 
+		//その場合は、存在しないnullであることをコントローラークラスに知らせる
+		//そうでない場合、ログインしている人の情報をコントローラークラスに渡す
 		public Admin loginCheck(String adminEmail,String password) {
 			Admin admin = adminDao.findByAdminEmailAndPassword(adminEmail, password);
 			if(admin == null) {

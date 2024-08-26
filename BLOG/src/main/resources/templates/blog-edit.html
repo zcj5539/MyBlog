@@ -15,9 +15,10 @@
 				<span th:text="${username}">username</span>
 			</div>
 			<div class="nav-links">
-				<a th:href="@{/list}">ブロック一覧</a>
+				<a th:href="@{/blog/list}">ブロク一覧</a>
 				<a th:href="@{/blog-add}">ブログの追加</a>
-				<a th:href="@{/admin/logout}">ログアウト</a>
+				<a th:href="@{/logout}">ログアウト</a>
+				<a th:href="@{/jikosyokai}">個人紹介</a>
 			</div>
 		</div>
 	</nav>
@@ -54,7 +55,7 @@
 				<textarea id="content" name="content" rows="10"
 					th:text="${blog.blogDescription}"></textarea>
 			</div>
-		<div>
+		<div class="button-container">
 		    <form th:action="@{/blog/edit/process}" method="post" enctype="multipart/form-data" style="display: inline;">
 		        <input type="hidden" name="blogid" th:value="${blog.blogId}">
 		        <button type="submit" style="margin-right: 10px;">更新</button>

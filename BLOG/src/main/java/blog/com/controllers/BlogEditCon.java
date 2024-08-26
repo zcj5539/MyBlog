@@ -32,7 +32,7 @@ public class BlogEditCon {
 	//編集画面を表示する
 	@GetMapping("/blog/edit/{blogId}")
 	public String getBlogEditPage(@PathVariable Long blogId,Model model) {
-		// 从session获得的登录者情报用admin格纳
+		// sessionからもらった登録者情報をadminで格纳。
 		Admin admin = (Admin) session.getAttribute("loginAdminInfo");
 		//もしadmin==null　ログイン画面ニリダイレクトする
 		if(admin == null) {
@@ -60,7 +60,7 @@ public class BlogEditCon {
 				@RequestParam MultipartFile img,
 				@RequestParam String content,
 				@RequestParam Long blogId){
-			// 从session获得的登录者情报用admin格纳
+			// sessionからもらった登録者情報をadminで格纳。
 			Admin admin = (Admin) session.getAttribute("loginAdminInfo");
 			//もし、admin ==nullだったら、ログイン画面ニリダイレクトする
 			//そうでない場合、ファイルの保存
