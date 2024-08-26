@@ -25,9 +25,10 @@ public class BlogService {
 			return blogDao.findAll();
 		}
 	}
-	//ブログ登録チェック
-	//もし、findByBlogTitleがNULLだったら、保存,true
-	//そうでない場合、FALSE
+
+	// ブログ登録チェック
+	// もし、findByBlogTitleがNULLだったら、保存,true
+	// そうでない場合、FALSE
 	public boolean createBlog(String blogCategory, String blogDescription, String blogImage, String blogTitle,
 			LocalDate date, Long adminId) {
 		if (blogDao.findByBlogTitle(blogTitle) == null) {
@@ -37,4 +38,50 @@ public class BlogService {
 			return false;
 		}
 	}
+
+	// 編集画面を表示するときのチェック
+	// もし、blogId＝＝null、null
+	// そうでない場合、findByBlogIdの情報をコントローラクラスに渡す
+	public Blog BlogEditCheck(Long blogId) {
+		if (blogId == null) {
+			return null;
+		} else {
+			return blogDao.findByBlogId(blogId);
+		}
+	}
+
+	// 更新处理的チェック、もしblogId==null、更新処理をしない false
+	// そうでない場合、更新処理をする
+	// コントローラクラスからもらった、blogIdを使って、編集する前の、データを取得
+	// 変更すべきところだけ、セッターを使用してデータを更新
+	// trueを返す
+	public boolean blogUpdate(Long blogId, String blogCategory, 
+							  String blogDescription, String blogImage,
+							    String blogTitle, LocalDate date, Long adminId) {
+		if (blogId == null) {
+			return false;
+		} else {
+			Blog blog = blogDao.findByBlogId(blogId);
+			blog.setBlogCategory(blogCategory);
+			blog.setBlogDescription(blogDescription);
+			blog.setBlogImage(blogImage);
+			blog.setBlogTitle(blogTitle);
+			blog.setDate(date);
+			blog.setAdminId(adminId);
+			blogDao.save(blog);
+			return true;
+		}
+	}
+	//用途：削除
+	//もしコントローラからもらったblogIdがnullであれば、削除できないこと、false
+	//そうでない場合、、deleteByBlogIdを使用してブログを削除
+	public boolean deleteBlog(Long blogId) {
+		if(blogId == null) {
+			return false;
+		}else {
+			blogDao.deleteByBlogId(blogId);
+			return true;
+		}
+	}
+	
 }

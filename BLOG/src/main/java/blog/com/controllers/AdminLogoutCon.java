@@ -11,10 +11,10 @@ public class AdminLogoutCon {
 	@Autowired
 	private HttpSession session;
 	
-	//登出处理
+	//ログアウト処理
 	@GetMapping("/logout")
 	public String adminLogout() {
-		//session无效化
+		//session無効化
 		session.invalidate();
 		return "redirect:/admin/login";
 	}

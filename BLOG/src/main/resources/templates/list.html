@@ -16,9 +16,10 @@
                     <span th:text="${adminName}"></span>
                 </div>
                 <div class="nav-links">
-                    <a th:href="@{/list}">ブロック一覧</a>
+                    <a th:href="@{/blog/list}">ブロック一覧</a>
                     <a th:href="@{/blog-add}">ブログの追加</a>
                     <a th:href="@{/logout}">ログアウト</a>
+					<a th:href="@{/jikosyokai}">個人紹介</a>
                 </div>
             </div>
         </nav>
@@ -34,9 +35,10 @@
 
             </section>
             <ul class="blog">
-                <li th:each="blog:${list}">
+                <li th:each="blog:${blogList}">
                     <a th:href="@{/blog/edit/{blogId}(blogId=${blog.blogId})}">
-                        <img th:src="@{/blog-img/{imagePath}(imagePath=${blog.blogImage})}" alt="">
+						<img th:src="@{/blog-img/{imagePath}(imagePath=${blog.blogImage})}" alt="" style="max-width: 100px; margin-top: 10px">
+
                         <p th:text="${blog.blogTitle}"></p><br>
                         <p th:text="${blog.blogCategory}"></p>
                     </a>

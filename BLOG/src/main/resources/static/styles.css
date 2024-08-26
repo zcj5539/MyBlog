@@ -5,10 +5,7 @@ body {
     padding: 0;
     background-image: url(img/login-back.jpg);
 }
-iframe{
-    width: 40%;
-    margin: 20px 800px;
-}
+
 header {
     background-color: #333;
     color: #fff;
@@ -35,12 +32,11 @@ nav ul li a {
 #hero {
     background: url('hero.jpg') no-repeat center center/cover;
     color: #fff;
-    height: 50vh;
+    height: 100vh;
     display: flex;
     justify-content: center;
+    align-items: center;
     text-align: center;
-    padding-top: 100px;
-    padding-bottom: 10px;
 }
 
 .hero-content h1 {

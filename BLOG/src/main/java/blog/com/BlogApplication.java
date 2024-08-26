@@ -2,7 +2,7 @@ package blog.com;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
+//システムを起動するメインクラス
 @SpringBootApplication
 public class BlogApplication {
 

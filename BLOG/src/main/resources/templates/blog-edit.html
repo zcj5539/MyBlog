@@ -1,61 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ブログの編集</title>
-    <link rel="stylesheet" th:href="@{blog-edit.css}"> <!-- 可以使用单独的 CSS 文件来调整样式 -->
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>ブログの編集</title>
+	<link rel="stylesheet" th:href="@{/blog-edit.css}"> <!-- 可以使用单独的 CSS 文件来调整样式 -->
 </head>
+
 <body>
-    <nav>
-        <div class="container">
-            <div class="brand">
-                <span th:text="${username}">username</span>
-            </div>
-            <div class="nav-links">
-                <a th:href="@{/list}">ブロック一覧</a>
-                <a th:href="@{/blog-add}">ブログの追加</a>
-                <a th:href="@{/admin/logout}">ログアウト</a>
-            </div>
-        </div>
-    </nav>
-    <div class="container2">
-        <h2>ブログを編集</h2>
-        <form action="/update" method="POST" enctype="multipart/form-data">
-            <!-- 隐藏的输入字段，用于传递要更新的博客的 ID -->
-            <input type="hidden" name="id" value="EXISTING_BLOG_ID">
-            
-            <div class="form">
-                <label for="title">タイトル</label>
-                <input type="text" id="title" name="title" value="EXISTING_BLOG_TITLE" required>
-            </div>
-            
-            <div>
-                <label for="date">日付</label>
-                <input type="date" id="date" name="date" value="EXISTING_BLOG_DATE" required>
-            </div>
-            
-            <div>
-                <label for="cate">カテゴリ</label>
-                <input type="text" name="cate" id="cate" value="EXISTING_BLOG_CATEGORY" required>
-            </div>
-            
-            <div>
-                <label for="img">画像</label>
-                <input type="file" name="img" id="img" accept="image/*">
-                <!-- 显示现有的图片，如果需要的话，可以在前端用 img 标签显示现有图片 -->
-                <img src="EXISTING_BLOG_IMAGE_URL" alt="Current Image" style="max-width: 100px; margin-top: 10px;">
-            </div>
-            
-            <div id="textarea">
-                <label for="content">内容</label>
-                <textarea id="content" name="content" rows="10" required>EXISTING_BLOG_CONTENT</textarea>
-            </div>
-            
-            <button type="submit">更新する</button>
-            <button>削除</button>
-            <button>戻る</button>
-        </form>
-    </div>
+	<nav>
+		<div class="container">
+			<div class="brand">
+				<span th:text="${username}">username</span>
+			</div>
+			<div class="nav-links">
+				<a th:href="@{/list}">ブロック一覧</a>
+				<a th:href="@{/blog-add}">ブログの追加</a>
+				<a th:href="@{/admin/logout}">ログアウト</a>
+			</div>
+		</div>
+	</nav>
+	<div class="container2">
+		<h2>ブログを編集</h2>
+		<form th:action="@{/blog/edit/process}" method="post" enctype="multipart/form-data">
+			<!-- 隐藏的输入字段，用于传递要更新的博客的 ID -->
+			<input type="hidden" name="blogId" th:value="${blog.blogId}">
+
+			<div class="form">
+				<label for="title">タイトル</label>
+				<input type="text" id="title" name="title" th:value="${blog.blogTitle}" required>
+			</div>
+
+			<div>
+				<label for="date">日付</label>
+				<input type="date" id="date" name="date" th:value="${#temporals.format(blog.date, 'yyyy-MM-dd')}" required>
+
+			</div>
+
+			<div>
+				<label for="cate">カテゴリ</label>
+				<input type="text" name="cate" id="cate" th:value="${blog.blogCategory}" required>
+			</div>
+
+			<div>
+				<label for="img">画像</label>
+				<input type="file" name="img" id="img" accept="image/*">
+				<img th:src="@{'/blog-img/' + ${blog.blogImage}}" alt="Current Image" style="max-width: 100px; margin-top: 10px;">
+			</div>
+
+			<div id="textarea">
+				<label for="content">内容</label>
+				<textarea id="content" name="content" rows="10"
+					th:text="${blog.blogDescription}"></textarea>
+			</div>
+		<div>
+		    <form th:action="@{/blog/edit/process}" method="post" enctype="multipart/form-data" style="display: inline;">
+		        <input type="hidden" name="blogid" th:value="${blog.blogId}">
+		        <button type="submit" style="margin-right: 10px;">更新</button>
+		    </form>
+
+		    <button class="back-btn" onclick="history.back();" type="button" style="margin-right: 10px;">戻る</button>
+
+		    <form th:action="@{/blog/delete}" method="post" style="display: inline;">
+		        <input type="hidden" name="blogId" th:value="${blog.blogId}">
+		        <button class="register">削除</button>
+		    </form>
+		</div>
+
+	</div>
 </body>
+
 </html>

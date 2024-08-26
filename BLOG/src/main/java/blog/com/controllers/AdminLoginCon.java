@@ -24,19 +24,18 @@ public class AdminLoginCon {
 		return "login.html";
 	}
 	
-	//登陆处理
+	//ログイン処理
 	@PostMapping("/admin/login/process")
 	public String adminLoginProcess(@RequestParam String adminEmail,
 									@RequestParam String password) {
-		//呼出logincheck方法。把结果给admin
+		//logincheckメソッドを呼び出して、adminニ結果をあげる。
 		Admin admin = adminService.loginCheck(adminEmail, password);
-		//如果admin==null，停留在login
-		//否则，把登陆数据保存在session，访问博客一览画面。
+		//もしadmin==null，login画面ニとどまる
+		//そうでない場合、ログインのデータをsessionに保存，ブログ一覧画面にアクセスする。
 		if(admin ==null) {
 			return "login.html";
 		}else {
 			session.setAttribute("loginAdminInfo", admin);
-			//这里不确定是blog/list还是list
 			return "redirect:/blog/list";
 		}
 		

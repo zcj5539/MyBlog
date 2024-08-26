@@ -28,6 +28,35 @@ article{
     background-color:yellow;
     margin-top:-25px;
 }
+/* 使整个博客列表居中显示，并在每个博客条目之间添加分割线 */
+.blog {
+    list-style-type: none; /* 去除列表项的默认样式 */
+    padding: 0;
+    text-align: center; /* 让内容居中 */
+    margin: 0 auto;
+    max-width: 600px; /* 限制列表的最大宽度 */
+}
+
+.blog li {
+    margin-bottom: 20px; /* 每个博客条目之间的间距 */
+    border-bottom: 1px solid #ccc; /* 添加分割线 */
+    padding-bottom: 20px;
+}
+
+.blog li a {
+    text-decoration: none; /* 去除链接的默认下划线 */
+    color: #000;
+}
+
+.blog li p {
+    margin: 5px 0; /* 缩小标题和类别之间的间距 */
+}
+
+.blog li img {
+    display: block;
+    margin: 0 auto; /* 图片居中显示 */
+}
+
 footer{
     background-color: pink;
     height: 50px;

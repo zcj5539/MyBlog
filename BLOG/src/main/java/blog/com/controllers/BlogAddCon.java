@@ -28,13 +28,14 @@ public class BlogAddCon {
 	@Autowired
 	private HttpSession session;
 
-	// 博客画面的表示
+	// ブログ登録画面の表示
 	@GetMapping("blog-add")
 	public String getBlogAdd(Model model) {
-		// 从session获得的登录者情报用admin格纳
-		// 如果admin==null，重访问login
-		// 否则情报给画面，并表示博客添加界面
+		// sessionからもらった登録者情報をadminで格纳。
 		Admin admin = (Admin) session.getAttribute("loginAdminInfo");
+		// もしadmin==null、loginにリダイレクトする
+		// そうでない場合、が情报を画面に渡す，ブログ登録画面を表示する
+		
 		if (admin == null) {
 			return "redirect:/admin/login";
 		} else {
@@ -43,14 +44,14 @@ public class BlogAddCon {
 		}
 	}
 
-	/// 博客追加处理
+	/// ブログ登録処理
 	@PostMapping("/blog/add/process")
 	public String blogAddProcess(@RequestParam String title,   
 			@RequestParam LocalDate date, 
 			@RequestParam String cate,
 			@RequestParam MultipartFile img,
 			@RequestParam String content) {
-		//从session获得的登录者情报用admin格纳
+		//sessionからもらった登録者情報をadminで格纳。
 		Admin admin = (Admin) session.getAttribute("loginAdminInfo");
 		//もし、admin==nullだったら、ログイン画面にリダイレクトする
 		//そうでない場合、画像のファイル名を取得、画像のアップロード
@@ -59,7 +60,7 @@ public class BlogAddCon {
 		if(admin==null) {
 			return "redirect:/admin/login";
 		}else {
-			//取得文件名
+			//ファイル名を取得
 			String fileName = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss-").format(new Date())+img.getOriginalFilename();
 			
 			//ファイルの保存作業
@@ -76,4 +77,5 @@ public class BlogAddCon {
 		}
 	}
 }
+	
 }

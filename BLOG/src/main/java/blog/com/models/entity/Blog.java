@@ -13,24 +13,28 @@ public class Blog {
 	//blog_id
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
+	//メンバ変数
 	private Long blogId;
 	private String blogCategory;
 	private String blogDescription;
 	private String blogImage;
 	private String blogTitle;
-	private LocalDate blogDate;
+	private LocalDate date;
 	private Long adminId;
+	//空のコンストラクタ
 	public Blog() {
 	}
+	//コンストラクタ
 	public Blog(String blogCategory, String blogDescription, String blogImage, String blogTitle, LocalDate date,
 			Long adminId) {
 		this.blogCategory = blogCategory;
 		this.blogDescription = blogDescription;
 		this.blogImage = blogImage;
 		this.blogTitle = blogTitle;
-		this.blogDate = date;
+		this.date = date;
 		this.adminId = adminId;
 	}
+	//ゲッターセッター
 	public Long getBlogId() {
 		return blogId;
 	}
@@ -61,11 +65,11 @@ public class Blog {
 	public void setBlogTitle(String blogTitle) {
 		this.blogTitle = blogTitle;
 	}
-	public LocalDate getBlogDate() {
-		return blogDate;
+	public LocalDate getDate() {
+		return date;
 	}
-	public void setBlogDate(LocalDate blogDate) {
-		this.blogDate = blogDate;
+	public void setDate(LocalDate date) {
+		this.date = date;
 	}
 	public Long getAdminId() {
 		return adminId;

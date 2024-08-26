@@ -14,12 +14,12 @@ public class AdminRegisterCon{
 	@Autowired
 	private AdminService adminService;
 	
-	//表示注册画面
+	//登録画面を表示
 	@GetMapping("/admin/register")
 	public String getAdminRegisterPage() {
 		return "register.html";
 	}
-	//注册处理
+	//登録处理
 	@PostMapping("/admin/register/process")
 	public String adminRegitserProcess(@RequestParam String adminName,
 										@RequestParam String adminEmail,
